@@ -1,0 +1,51 @@
+name,input,callInTime,uses,cooldown
+Machine Gun,▼◄▼▲►,Three seconds,Unlimited,480 seconds
+Anti-Material Rifle,▼◄►▲▼,Three seconds,Unlimited,480 seconds
+Stalwart,▼◄▼▲▲◄,Three seconds,Unlimited,480 seconds
+Expendable Anti-Tank,▼▼◄▲►,Two seconds,Unlimited,70 seconds
+Recoilless Rifle,▼◄►►◄,Three seconds,Unlimited,480 seconds
+Flamethrower,▼◄▲▼▲,Three seconds,Unlimited,480 seconds
+Autocannon,▼◄▼▲▲►,Three seconds,Unlimited,480 seconds
+Railgun,▼►▼▲◄►,Three seconds,Unlimited,480 seconds
+Spear,▼▼▲▼▼,Three seconds,Unlimited,480 seconds
+Orbital Gatling Barrage,►▼◄▲▲,Two seconds,Unlimited,80 seconds
+Orbital Airburst Strike,►►►,Two seconds,Unlimited,120 seconds
+Orbital 120MM HE Barrage,►►▼◄►▼,Five seconds,Unlimited,240 seconds
+Orbital 380MM HE Barrage,►▼▲▲◄▼▼,Six seconds,Unlimited,240 seconds
+Orbital Walking Barrage,►▼►▼►▼,Three seconds,Unlimited,240 seconds
+Orbital Laser Strike,►▼▲►▼,Two seconds,Three,300 seconds
+Orbital Railcannon Strike,►▲▼▼►,One second,Unlimited,210 seconds
+Eagle Strafing Run,▲►►,Immediate,Three,8 seconds
+Eagle Airstrike,▲►▼►,Immediate,Two,8 seconds
+Eagle Cluster Bomb,▲►▼▼►,Immediate,Four,8 seconds
+Eagle Napalm Airstrike,▲►▼▲,Immediate,Two,8 seconds
+Jump Pack,▼▲▲▼▲,Five seconds,Unlimited,480 seconds
+Eagle Smoke Strike,▲►▲▼,Immediate,Two,8 seconds
+Eagle 110MM Rocket Pods,▲►▲◄,Immediate,Two,8 seconds
+Eagle 500KG Bomb,▲►▼▼▼,Immediate,One,8 seconds
+Orbital Precision Strike,►►▲,Four seconds,Unlimited,100 seconds
+Orbital Gas Strike,►►▼►,Two seconds,Unlimited,75 seconds
+Orbital EMS Strike,►►◄▼,Two seconds,Unlimited,75 seconds
+Orbital Smoke Strike,►►▼▲,Two seconds,Unlimited,100 seconds
+HMG Emplacement,▼▲◄►►◄,Three seconds,Unlimited,180 seconds
+Shield Generator Relay,▼▼◄►◄►,Immediate,Unlimited,90 seconds
+Tesla Tower,▼▲►▲◄►,Three seconds,Unlimited,150 seconds
+Anti-Personnel Minefield,▼◄▼▲►,Three seconds,Unlimited,180 seconds
+Supply Pack,▼◄▼▲▲▼,Five seconds,Unlimited,480 seconds
+Grenade Launcher,▼◄▲◄▼,Three seconds,Unlimited,480 seconds
+Laser Cannon,▼◄▼▲◄,Three seconds,Unlimited,480 seconds
+Incendiary Mines,▼◄◄▼,Three seconds,Unlimited,180 seconds
+“Guard Dog” Rover,▼▲◄▲►►,Five seconds,Unlimited,480 seconds
+Ballistic Shield Backpack,▼◄▼▼▲◄,Five seconds,Unlimited,300 seconds
+Arc Thrower,▼►▼▲◄◄,Three seconds,Unlimited,480 seconds
+Shield Generator Pack,▼▲◄►◄►,Five seconds,Unlimited,480 seconds
+Machine Gun Sentry,▼▲►►▲,Three seconds,Unlimited,180 seconds
+Gatling Sentry,▼▲►◄,Three seconds,Unlimited,180 seconds
+Mortar Sentry,▼▲►►▼,Three seconds,Unlimited,180 seconds
+“Guard Dog”,▼▲◄▲►▼,Five seconds,Unlimited,480 seconds
+Autocannon Sentry,▼▲►▲◄▲,Three seconds,Unlimited,180 seconds
+Rocket Sentry,▼▲►►◄,Three seconds,Unlimited,180 seconds
+EMS Mortar Sentry,▼▲►▼►,Three seconds,Unlimited,180 seconds
+Patriot Exosuit,◄▼►▲◄▼▼,Immediate,Two,600 seconds
+Airburst Rocket Launcher, ▼▲▲◄►, Three seconds, Unlimited, 480 seconds
+Emancipator Exosuit, ◄▼►▲◄▼▲, Immediate, Two, 600 seconds
