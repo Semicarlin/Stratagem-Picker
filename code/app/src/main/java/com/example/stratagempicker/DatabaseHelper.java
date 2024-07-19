@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static final String STRATAGEM_TABLE = "STRATAGEMS";
+    public static final String STRATAGEM_TABLE = "stratagems";
     public static final String COL_STRATAGEM_ID = "id";
     public static final String COL_STRATAGEM_NAME = "name";
     public static final String COL_STRATAGEM_INPUT = "input";
