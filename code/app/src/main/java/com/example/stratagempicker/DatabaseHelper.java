@@ -1,45 +1,50 @@
+// Adapted from https://stackoverflow.com/a/47166775
+
 package com.example.stratagempicker;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static final String STRATAGEM_TABLE = "stratagems";
-    public static final String COL_STRATAGEM_ID = "id";
-    public static final String COL_STRATAGEM_NAME = "name";
-    public static final String COL_STRATAGEM_INPUT = "input";
-    public static final String COL_STRATAGEM_CALL_IN_TIME = "callInTime";
-    public static final String COL_STRATAGEM_USES = "uses";
-    public static final String COL_STRATAGEM_COOLDOWN = "cooldown";
-    public static final String COL_STRATAGEM_IS_OWNED = "owned";
+    private String dbName;
+    private String appDataPath;
+    private Context context;
+    SQLiteDatabase database;
 
-    public DatabaseHelper(@Nullable Context context) {
-        super(context, "sp.db", null, 1);
+
+    public DatabaseHelper(Context context, String dbName) {
+        super(context, dbName, null, 1);
+        this.dbName = dbName;
+        this.context = context;
+        this.appDataPath = context.getApplicationInfo().dataDir;
     }
 
+    public boolean openDatabase() {
+        String mPath = appDataPath + "/databases/" + dbName;
+        database = SQLiteDatabase.openDatabase(mPath, null, SQLiteDatabase.OPEN_READWRITE);
+        return database != null;
+    }
+
+    // Called the first time the database is accessed
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTableStatement = "CREATE TABLE " + STRATAGEM_TABLE +
-                "(" + COL_STRATAGEM_ID + " INT PRIMARY KEY AUTOINCREMENT, " +
-                COL_STRATAGEM_NAME + " CHAR, " +
-                COL_STRATAGEM_INPUT + " CHAR, " +
-                COL_STRATAGEM_CALL_IN_TIME + " INT, " +
-                COL_STRATAGEM_USES + " REAL, " +
-                COL_STRATAGEM_COOLDOWN + " INT," +
-                COL_STRATAGEM_IS_OWNED + " INT);";
-        db.execSQL(createTableStatement);
+        // Do nothing as db already exists and is static
     }
 
-    private void prePopulateDatabase(SQLiteDatabase db) {
-        db.execSQL();
-    }
-
+    // Called if the database version number changes
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        // Do nothing as db already exists and is static
     }
+
 }

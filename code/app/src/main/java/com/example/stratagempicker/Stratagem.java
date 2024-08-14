@@ -14,6 +14,16 @@ public class Stratagem {
     // Constructors
     public Stratagem() {}
 
+    public Stratagem(int id, String name, String input, int callInTime, double uses, int cooldown) {
+        this.id = id;
+        this.name = name;
+        this.input = input;
+        this.callInTime = callInTime;
+        this.uses = uses;
+        this.cooldown = cooldown;
+        this.owned = true;
+    }
+
     public Stratagem(int id, String name, String input, int callInTime, double uses, int cooldown, boolean owned) {
         this.id = id;
         this.name = name;
