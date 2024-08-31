@@ -11,12 +11,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class AssetDatabaseOpenHelper {
+public class AssetDatabaseCloner {
 
     private Context context;
     private String DB_NAME;
 
-    public AssetDatabaseOpenHelper(Context context, String database_name) {
+    public AssetDatabaseCloner(Context context, String database_name) {
         this.context = context;
         this.DB_NAME = database_name;
     }
@@ -36,17 +36,7 @@ public class AssetDatabaseOpenHelper {
     }
 
     private void copyDatabase(File dbFile) throws IOException {
-        InputStream is = context.getAssets().open(DB_NAME);
-        OutputStream os = new FileOutputStream(dbFile);
 
-        byte[] buffer = new byte[1024];
-        while (is.read(buffer) > 0) {
-            os.write(buffer);
-        }
-
-        os.flush();
-        os.close();
-        is.close();
     }
 
 }

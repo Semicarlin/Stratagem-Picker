@@ -1,5 +1,7 @@
 package com.example.stratagempicker;
 
+import androidx.annotation.Nullable;
+
 public class Stratagem {
 
     // Attributes
@@ -9,28 +11,22 @@ public class Stratagem {
     private int callInTime;
     private double uses;
     private int cooldown;
+    private StratagemType type;
+    private boolean hasBackpack;
     private boolean owned;
 
     // Constructors
     public Stratagem() {}
 
-    public Stratagem(int id, String name, String input, int callInTime, double uses, int cooldown) {
+    public Stratagem(int id, String name, String input, int callInTime, double uses, int cooldown, StratagemType type, boolean hasBackpack, boolean owned) {
         this.id = id;
         this.name = name;
         this.input = input;
         this.callInTime = callInTime;
         this.uses = uses;
         this.cooldown = cooldown;
-        this.owned = true;
-    }
-
-    public Stratagem(int id, String name, String input, int callInTime, double uses, int cooldown, boolean owned) {
-        this.id = id;
-        this.name = name;
-        this.input = input;
-        this.callInTime = callInTime;
-        this.uses = uses;
-        this.cooldown = cooldown;
+        this.type = type;
+        this.hasBackpack = hasBackpack;
         this.owned = owned;
     }
 
@@ -59,40 +55,21 @@ public class Stratagem {
         return cooldown;
     }
 
+    public StratagemType getType() {
+        return type;
+    }
+
+    public boolean isHasBackpack() {
+        return hasBackpack;
+    }
+
     public boolean isOwned() {
         return owned;
     }
 
-    // Setters
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setInput(String input) {
-        this.input = input;
-    }
-
-    public void setCallInTime(int callInTime) {
-        this.callInTime = callInTime;
-    }
-
-    public void setUses(double uses) {
-        this.uses = uses;
-    }
-
-    public void setCooldown(int cooldown) {
-        this.cooldown = cooldown;
-    }
-
-    public void setOwned(boolean owned) {
-        this.owned = owned;
-    }
-
     // Functions
+
+
     @Override
     public String toString() {
         return "Stratagem{" +
@@ -102,6 +79,22 @@ public class Stratagem {
                 ", callInTime=" + callInTime +
                 ", uses=" + uses +
                 ", cooldown=" + cooldown +
+                ", type=" + type +
+                ", hasBackpack=" + hasBackpack +
+                ", owned=" + owned +
                 '}';
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+        else {
+            return this.getId() == ((Stratagem) obj).getId();
+        }
     }
 }

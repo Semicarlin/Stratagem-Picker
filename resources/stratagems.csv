@@ -1,51 +1,52 @@
-name,input,callInTime,uses,cooldown
-Machine Gun,dldur,3,1e999,480
-Anti-Material Rifle,dlrud,3,1e999,480
-Stalwart,dlduul,3,1e999,480
-Expendable Anti-Tank,ddlur,2,1e999,70
-Recoilless Rifle,dlrrl,3,1e999,480
-Flamethrower,dludu,3,1e999,480
-Autocannon,dlduur,3,1e999,480
-Railgun,drdulr,3,1e999,480
-Spear,ddudd,3,1e999,480
-Orbital Gatling Barrage,rdluu,2,1e999,80
-Orbital Airburst Strike,rrr,2,1e999,120
-Orbital 120MM HE Barrage,rrdlrd,5,1e999,240
-Orbital 380MM HE Barrage,rduuldd,6,1e999,240
-Orbital Walking Barrage,rdrdrd,3,1e999,240
-Orbital Laser Strike,rdurd,2,3,300
-Orbital Railcannon Strike,ruddr,1,1e999,210
-Eagle Strafing Run,urr,0,3,8
-Eagle Airstrike,urdr,0,2,8
-Eagle Cluster Bomb,urddr,0,4,8
-Eagle Napalm Airstrike,urdu,0,2,8
-Jump Pack,duudu,5,1e999,480
-Eagle Smoke Strike,urud,0,2,8
-Eagle 110MM Rocket Pods,urul,0,2,8
-Eagle 500KG Bomb,urddd,0,1,8
-Orbital Precision Strike,rru,4,1e999,100
-Orbital Gas Strike,rrdr,2,1e999,75
-Orbital EMS Strike,rrld,2,1e999,75
-Orbital Smoke Strike,rrdu,2,1e999,100
-HMG Emplacement,dulrrl,3,1e999,180
-Shield Generator Relay,ddlrlr,0,1e999,90
-Tesla Tower,durulr,3,1e999,150
-Anti-Personnel Minefield,dldur,3,1e999,180
-Supply Pack,dlduud,5,1e999,480
-Grenade Launcher,dluld,3,1e999,480
-Laser Cannon,dldul,3,1e999,480
-Incendiary Mines,dlld,3,1e999,180
-Guard Dog Rover,dulurr,5,1e999,480
-Ballistic Shield Backpack,dlddul,5,1e999,300
-Arc Thrower,drdull,3,1e999,480
-Shield Generator Pack,dulrlr,5,1e999,480
-Machine Gun Sentry,durru,3,1e999,180
-Gatling Sentry,durl,3,1e999,180
-Mortar Sentry,durrd,3,1e999,180
-Guard Dog,dulurd,5,1e999,480
-Autocannon Sentry,durulu,3,1e999,180
-Rocket Sentry,durrl,3,1e999,180
-EMS Mortar Sentry,durdr,3,1e999,180
-Patriot Exosuit,ldruldd,0,2,600
-Airburst Rocket Launcher,duulr,3,1e999,480
-Emancipator Exosuit,ldruldu,0,2,600
+name,input,callInTime,uses,cooldown,type,hasBackpack,isOwned
+Machine Gun,dldur,3,1e999,480,weapon,0,1
+Anti-Material Rifle,dlrud,3,1e999,480,weapon,0,1
+Stalwart,dlduul,3,1e999,480,weapon,0,1
+Expendable Anti-Tank,ddlur,2,1e999,70,weapon,0,1
+Recoilless Rifle,dlrrl,3,1e999,480,weapon,1,1
+Flamethrower,dludu,3,1e999,480,weapon,0,1
+Autocannon,dlduur,3,1e999,480,weapon,1,1
+Railgun,drdulr,3,1e999,480,weapon,0,1
+Spear,ddudd,3,1e999,480,weapon,1,1
+Orbital Gatling Barrage,rdluu,2,1e999,80,orbital,0,1
+Orbital Airburst Strike,rrr,2,1e999,120,orbital,0,1
+Orbital 120mm HE Barrage,rrdlrd,5,1e999,240,orbital,0,1
+Orbital 380mm HE Barrage,rduuldd,6,1e999,240,orbital,0,1
+Orbital Walking Barrage,rdrdrd,3,1e999,240,orbital,0,1
+Orbital Laser Strike,rdurd,2,3,300,orbital,0,1
+Orbital Railcannon Strike,ruddr,1,1e999,210,orbital,0,1
+Eagle Strafing Run,urr,0,4,8,eagle,0,1
+Eagle Airstrike,urdr,0,2,8,eagle,0,1
+Eagle Cluster Bomb,urddr,0,4,8,eagle,0,1
+Eagle Napalm Airstrike,urdu,0,2,8,eagle,0,1
+Jump Pack,duudu,5,1e999,480,backpack,1,1
+Eagle Smoke Strike,urud,0,2,8,eagle,0,1
+Eagle 110mm Rocket Pods,urul,0,2,8,eagle,0,1
+Eagle 500kg Bomb,urddd,0,1,8,eagle,0,1
+Orbital Precision Strike,rru,4,1e999,100,orbital,0,1
+Orbital Gas Strike,rrdr,2,1e999,75,orbital,0,1
+Orbital EMS Strike,rrld,2,1e999,75,orbital,0,1
+Orbital Smoke Strike,rrdu,2,1e999,100,orbital,0,1
+HMG Emplacement,dulrrl,3,1e999,180,emplacement,0,1
+Shield Generator Relay,ddlrlr,0,1e999,90,emplacement,0,1
+Tesla Tower,durulr,3,1e999,150,emplacement,0,1
+Anti-Personnel Minefield,dldur,3,1e999,180,emplacement,0,1
+Supply Pack,dlduud,5,1e999,480,backpack,1,1
+Grenade Launcher,dluld,3,1e999,480,weapon,0,1
+Laser Cannon,dldul,3,1e999,480,weapon,0,1
+Incendiary Mines,dlld,3,1e999,180,emplacement,0,1
+Guard Dog Rover,dulurr,5,1e999,480,backpack,1,1
+Ballistic Shield Backpack,dlddul,5,1e999,300,backpack,1,1
+Arc Thrower,drdull,3,1e999,480,weapon,0,1
+Shield Generator Pack,dulrlr,5,1e999,480,backpack,1,1
+Machine Gun Sentry,durru,3,1e999,180,emplacement,0,1
+Gatling Sentry,durl,3,1e999,180,emplacement,0,1
+Mortar Sentry,durrd,3,1e999,180,emplacement,0,1
+Guard Dog,dulurd,5,1e999,480,backpack,1,1
+Autocannon Sentry,durulu,3,1e999,180,emplacement,0,1
+Rocket Sentry,durrl,3,1e999,180,emplacement,0,1
+EMS Mortar Sentry,durdr,3,1e999,180,emplacement,0,1
+Patriot Exosuit,ldruldd,0,2,600,mech,0,1
+Airburst Rocket Launcher,duulr,3,1e999,480,weapon,1,1
+Emancipator Exosuit,ldruldu,0,2,600,mech,0,1
+Anti-Tank Mines,dluu,7,1e999,180,emplacement,0,1
