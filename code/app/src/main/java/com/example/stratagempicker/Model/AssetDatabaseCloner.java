@@ -1,6 +1,6 @@
 // Adapted from https://github.com/jakirseu/Android-Pre-Built-database
 
-package com.example.stratagempicker;
+package com.example.stratagempicker.Model;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

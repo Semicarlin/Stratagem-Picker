@@ -1,12 +1,14 @@
 // Adapted from https://stackoverflow.com/a/47166775
 
-package com.example.stratagempicker;
+package com.example.stratagempicker.Model;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import com.example.stratagempicker.Activities.MainActivity;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -23,7 +25,6 @@ import java.util.Random;
 public class Database extends SQLiteOpenHelper {
 
     // Attributes
-    private Context context;
     private final String dbName;
     private final String appDataPath;
     SQLiteDatabase sqLiteDatabase;
@@ -35,7 +36,6 @@ public class Database extends SQLiteOpenHelper {
     // Constructor
     public Database(Context context, String dbName) {
         super(context, dbName, null, 1);
-        this.context = context;
         this.dbName = dbName;
         this.appDataPath = context.getApplicationInfo().dataDir;
 

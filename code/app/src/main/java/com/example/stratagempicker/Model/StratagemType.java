@@ -1,4 +1,4 @@
-package com.example.stratagempicker;
+package com.example.stratagempicker.Model;
 
 public enum StratagemType {
     // Support weapons (possibly having backpacks)

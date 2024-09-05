@@ -1,4 +1,6 @@
-package com.example.stratagempicker;
+package com.example.stratagempicker.Model;
+
+import com.example.stratagempicker.Activities.MainActivity;
 
 import java.util.ArrayList;
 

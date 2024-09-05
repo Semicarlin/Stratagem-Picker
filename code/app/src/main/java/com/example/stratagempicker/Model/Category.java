@@ -1,9 +1,7 @@
-package com.example.stratagempicker;
+package com.example.stratagempicker.Model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Random;
-import java.util.Set;
 
 /**
  * Represents group of stratagems

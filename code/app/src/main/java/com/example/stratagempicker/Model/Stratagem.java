@@ -1,4 +1,4 @@
-package com.example.stratagempicker;
+package com.example.stratagempicker.Model;
 
 import androidx.annotation.Nullable;
 
