@@ -68,8 +68,6 @@ public class Stratagem {
     }
 
     // Functions
-
-
     @Override
     public String toString() {
         return "Stratagem{" +

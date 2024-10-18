@@ -29,7 +29,6 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/main_activity_frag_contain"
-            android:name="com.example.stratagempicker.Fragments.GenerateLoadoutFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/main_activity_bottom_nav"

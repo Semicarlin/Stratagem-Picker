@@ -36,11 +36,10 @@ public class MainActivity extends AppCompatActivity {
     public static User user;
     public static Database database;
     private BottomNavigationView navBar;
-    private FragmentContainerView fragmentContainerView;
-    private final FragmentManager fragmentManager = getSupportFragmentManager();
-    private final CategoryListFragment categoryListFragment = new CategoryListFragment();
-    private final GenerateLoadoutFragment generateLoadoutFragment = new GenerateLoadoutFragment();
-    private final UserPreferencesFragment userPreferencesFragment = new UserPreferencesFragment();
+    private FragmentManager fragmentManager = getSupportFragmentManager();
+    private CategoryListFragment categoryListFragment = new CategoryListFragment();
+    private GenerateLoadoutFragment generateLoadoutFragment = new GenerateLoadoutFragment();
+    private UserPreferencesFragment userPreferencesFragment = new UserPreferencesFragment();
     private Fragment activeFragment;
     public static final int NAV_CATEGORY_LIST = R.id.navbar_category_list;
     public static final int NAV_GENERATE_LOADOUT = R.id.navbar_generate_loadout;
@@ -60,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Find views
         navBar = findViewById(R.id.main_activity_bottom_nav);
-        fragmentContainerView = findViewById(R.id.main_activity_frag_contain);
 
         // Set up nav bar
         navBar.setSelectedItemId(NAV_GENERATE_LOADOUT);
@@ -85,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
                 // Find corresponding selected fragment
                 int itemID = item.getItemId();
-                Log.d("bagel", Integer.toString(itemID));
                 if (itemID == NAV_CATEGORY_LIST) {
                     selectedFragment = categoryListFragment;
                 } else if (itemID == NAV_GENERATE_LOADOUT) {
@@ -96,20 +93,15 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     return false;
                 }
-                Log.d("bagel", Integer.toString(itemID % 3));
 
                 // Update container to show new fragment
                 fragmentManager.beginTransaction()
                         .hide(activeFragment)
-                        .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                         .show(selectedFragment)
                         .commitNow();
                 activeFragment = selectedFragment;
                 return true;
             }
         });
-
-
-
     }
 }

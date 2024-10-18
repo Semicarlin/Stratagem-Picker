@@ -27,11 +27,11 @@ public class Database extends SQLiteOpenHelper {
     // Attributes
     private final String dbName;
     private final String appDataPath;
-    SQLiteDatabase sqLiteDatabase;
     private final String stratagemsTableName = "stratagems";
     private final String userPreferencesTableName = "user_preferences";
     private final List<Stratagem> allStratagems = new ArrayList<>();
     private final Random randomGenerator = new Random();
+    private SQLiteDatabase sqLiteDatabase;
 
     // Constructor
     public Database(Context context, String dbName) {
@@ -39,55 +39,54 @@ public class Database extends SQLiteOpenHelper {
         this.dbName = dbName;
         this.appDataPath = context.getApplicationInfo().dataDir;
 
-        // Copy database into device files if not done so (if first app startup)
-        File dbFile = context.getDatabasePath(dbName);
-        if (true) {
+        // Create or open database from device files
+        sqLiteDatabase = SQLiteDatabase.openOrCreateDatabase(appDataPath + "/databases/" + dbName, null);
 
-            // Adapted from https://github.com/jakirseu/Android-Pre-Built-database
-            try {
-                // Open file input/output streams
-                InputStream is = context.getAssets().open(dbName);
-                OutputStream os = new FileOutputStream(dbFile);
-
-                // Write to file
-                byte[] buffer = new byte[1024];
-                while (is.read(buffer) > 0) {
-                    os.write(buffer);
-                }
-
-                // Flush buffer in close streams
-                os.flush();
-                os.close();
-                is.close();
-            }
-            catch (IOException e) {
-                throw new RuntimeException("Error creating source database", e);
-            }
-        }
-        openDatabase();
-    }
-
-    // Functions
-    public void openDatabase() {
-        String mPath = appDataPath + "/databases/" + dbName;
-        sqLiteDatabase = SQLiteDatabase.openDatabase(mPath, null, SQLiteDatabase.OPEN_READWRITE);
+        // Get contents of database
         getDatabaseContents();
     }
 
-    public void getDatabaseContents() {
-        // Read stratagem table
+    // Functions
+    private void getDatabaseContents() {
+
+        // Check for stratagem table
+        if (!tableExists(stratagemsTableName) || missingStratagems()) {
+            createStratagemTable();
+        }
         readStratagemTable();
 
         // Check for user preferences table
-        if (userTableExists()) {
-            readUserPreferencesTable();
-        }
-        else {
+        if (!tableExists(userPreferencesTableName)) {
             createUserPreferencesTable();
         }
+        readUserPreferencesTable();
 
         // Read categories table
         // TODO
+    }
+
+    private boolean tableExists(String tableName) {
+
+        // Write query to check for table
+        String query = "SELECT DISTINCT tbl_name from sqlite_master where tbl_name = '" + tableName + "';";
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        if (cursor != null) {
+            int results = cursor.getCount();
+            cursor.close();
+            return results > 0;
+        }
+        return false;
+    }
+
+    private boolean missingStratagems() {
+        return false;
+    }
+
+    private void createStratagemTable() {
+
+        // Execute SQL statement to create stratagem table
+        // CREATE TABLE stratagems (id INTEGER PRIMARY KEY AUTOINCREMENT)
+
     }
 
     private void readStratagemTable() {
@@ -104,7 +103,7 @@ public class Database extends SQLiteOpenHelper {
                 String name = cursor.getString(1);
                 String input = cursor.getString(2);
                 int callInTime = cursor.getInt(3);
-                Float uses = cursor.getFloat(4);
+                float uses = cursor.getFloat(4);
                 int cooldown = cursor.getInt(5);
                 String type = cursor.getString(6);
                 boolean hasBackpack = cursor.getInt(7) == 1;
@@ -118,19 +117,6 @@ public class Database extends SQLiteOpenHelper {
 
         // Close cursor
         cursor.close();
-    }
-
-    private boolean userTableExists() {
-
-        // Write query to check for table
-        String query = "SELECT DISTINCT tbl_name from sqlite_master where tbl_name = '" + userPreferencesTableName + "';";
-        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
-        if (cursor != null) {
-            int results = cursor.getCount();
-            cursor.close();
-            return results > 0;
-        }
-        return false;
     }
 
     private void readUserPreferencesTable() {
@@ -202,4 +188,26 @@ public class Database extends SQLiteOpenHelper {
         // Do nothing as db already exists and is static
     }
 
+    private void writeDatabaseFromAssets(Context context, File dbFile) {
+        // Adapted from https://github.com/jakirseu/Android-Pre-Built-database
+        try {
+            // Open file input/output streams
+            InputStream is = context.getAssets().open(dbName);
+            OutputStream os = new FileOutputStream(dbFile);
+
+            // Write to file
+            byte[] buffer = new byte[1024];
+            while (is.read(buffer) > 0) {
+                os.write(buffer);
+            }
+
+            // Flush buffer in close streams
+            os.flush();
+            os.close();
+            is.close();
+        }
+        catch (IOException e) {
+            throw new RuntimeException("Error creating source database", e);
+        }
+    }
 }

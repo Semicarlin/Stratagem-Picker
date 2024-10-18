@@ -32,11 +32,6 @@ public class GenerateLoadoutFragment extends Fragment {
 
     // Functions
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_generate_loadout, container, false);
     }
@@ -61,7 +56,6 @@ public class GenerateLoadoutFragment extends Fragment {
                 Batch batch = MainActivity.database.makeBatch();
                 for (int i = 0; i < 4; ++i) {
                     textViews.get(i).setText(batch.get(i).getName());
-                    Log.d("bagel", batch.get(i).toString());
                 }
 //                stratagem1Text.setText(database.getRandomStratagem().getName());
 //                stratagem2Text.setText(database.getRandomStratagem().getName());
