@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.stratagempicker.Activities.MainActivity;
 import com.example.stratagempicker.Model.Batch;
+import com.example.stratagempicker.Model.StratagemType;
 import com.example.stratagempicker.R;
 
 import java.util.List;

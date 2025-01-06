@@ -3,9 +3,8 @@ Generates Java class containing SQL statements for inserting values within strat
 """
 
 # Globals
+table_name_var = "stratagems"
 filename = "stratagems.csv"
-table_name_var = "tableName"
-table_name = "stratagems"
 java_file_path = "../code/app/src/main/java/com/example/stratagempicker/Model/PrePopulation.java"
 
 def write_java(content):
@@ -14,34 +13,43 @@ def write_java(content):
     with open(java_file_path, "w") as infile:
         
         # Write Java class containing attributes, functions, and strings to write in the following table
-		# INSERT INTO STRATAGEMS values(id, name, input, callInTime, uses, cooldown, type, hasBackpack, isOwned)
+		# INSERT INTO STRATAGEMS values(id, name, input, uses, type, hasBackpack, isOwned)
+        # for id, row in enumerate(content):
+        #     name, input, uses, strat_type, hasBackpack, isOwned = [col.strip("\n") for col in row.split(",")]
+        #     print(
+        #         "\t\t" + "Stratagem(%s)" % ("%s, \"%s\", \"%s\", %s, StratagemType.%s, %s, %s" % (id, name, input, uses, strat_type.upper(), hasBackpack, isOwned)) + ",\n",
+        #         end=""
+        #     )
+
         infile.write((
             """
 package com.example.stratagempicker.Model;
 
 public class PrePopulation {{
 
-    private String {table_name_var} = \"{table_name}\";
-
-    private int stratagemCount = {stratagem_count};
-
-	private String[] stratagemStrings = {{
+	private final Stratagem[] stratagems = {{
 {stratagem_strings}
     }};
 
-    public String[] getStratagemStrings() {{
-        return stratagemStrings;
-    }}
-
-    public int getStratagemCount() {{
-        return stratagemCount;
+    public Stratagem[] getStratagems() {{
+        return stratagems;
     }}
 }}
 			""".format(
-                table_name = table_name,
-                table_name_var = table_name_var,
-                stratagem_count = len(content),
-                stratagem_strings = ",\n".join(["\t\t" + (" ".join(["\"INSERT INTO \"", "+ %s +" % table_name_var, "\" VALUES(%s);\"" % ("'%s', '%s', '%s', %s, %s, %s, %s, %s, %s" % ((i,) + tuple(row.strip().split(","))))])) for i, row in enumerate(content)])
+                stratagem_strings = ",\n".join(
+                    [
+                        "\t\t" + "new Stratagem(%s)" % (
+                            "%s, \"%s\", \"%s\", %s, StratagemType.%s, %s, %s" % (
+                                id, # id
+                                *[col.strip("\n") for col in row.split(",")[:2]], # name, input
+                                row.split(",")[2] if row.split(",")[2] != "1e999" else "Integer.MAX_VALUE", # uses
+                                row.split(",")[3].upper(), # type
+                                row.split(",")[4], # hasBackpack
+                                row.split(",")[5].strip("\n") # isOwned
+                            )
+                        ) for id, row in enumerate(content)
+                    ]
+                )
             )
         ).strip())
 
@@ -54,6 +62,10 @@ def main():
 
         # Write data into .db file
         write_java(content)
+
+        # Print success message
+        print("File written: %s" % java_file_path)
+    
     
 if __name__ == "__main__":
     main()

@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -27,9 +28,8 @@ public class Database extends SQLiteOpenHelper {
     // Attributes
     private final String dbName;
     private final String appDataPath;
-    private final String stratagemsTableName = "stratagems";
     private final String userPreferencesTableName = "user_preferences";
-    private final List<Stratagem> allStratagems = new ArrayList<>();
+    private List<Stratagem> allStratagems = new ArrayList<>();
     private final Random randomGenerator = new Random();
     private SQLiteDatabase sqLiteDatabase;
 
@@ -49,11 +49,9 @@ public class Database extends SQLiteOpenHelper {
     // Functions
     private void getDatabaseContents() {
 
-        // Check for stratagem table
-        if (!tableExists(stratagemsTableName) || missingStratagems()) {
-            createStratagemTable();
-        }
-        readStratagemTable();
+        // Get stratagems
+        PrePopulation prePop = new PrePopulation();
+        allStratagems = Arrays.asList(prePop.getStratagems());
 
         // Check for user preferences table
         if (!tableExists(userPreferencesTableName)) {
@@ -62,6 +60,9 @@ public class Database extends SQLiteOpenHelper {
         readUserPreferencesTable();
 
         // Read categories table
+        // TODO
+
+        // Read isOwned table
         // TODO
     }
 
@@ -76,47 +77,6 @@ public class Database extends SQLiteOpenHelper {
             return results > 0;
         }
         return false;
-    }
-
-    private boolean missingStratagems() {
-        return false;
-    }
-
-    private void createStratagemTable() {
-
-        // Execute SQL statement to create stratagem table
-        // CREATE TABLE stratagems (id INTEGER PRIMARY KEY AUTOINCREMENT)
-
-    }
-
-    private void readStratagemTable() {
-
-        // Get all stratagems from database stratagems(id INTEGER PRIMARY KEY, name CHAR, input CHAR, callInTime INTEGER, uses REAL, cooldown INTEGER, type CHAR, hasBackpack INTEGER, isOwned INTEGER);
-        String stratagemQuery = "SELECT * FROM " + stratagemsTableName + ";";
-        Cursor cursor = sqLiteDatabase.rawQuery(stratagemQuery, null);
-        if (cursor.moveToFirst()) {
-
-            // Iterate through results of query
-            do {
-                // Get attributes of next stratagem
-                int id = cursor.getInt(0);
-                String name = cursor.getString(1);
-                String input = cursor.getString(2);
-                int callInTime = cursor.getInt(3);
-                float uses = cursor.getFloat(4);
-                int cooldown = cursor.getInt(5);
-                String type = cursor.getString(6);
-                boolean hasBackpack = cursor.getInt(7) == 1;
-                boolean isOwned = cursor.getInt(8) == 1;
-
-                // Make stratagem object and add to list
-                Stratagem newStratagem = new Stratagem(id, name, input, callInTime, uses, cooldown, StratagemType.valueOf(type.toUpperCase()), hasBackpack, isOwned);
-                allStratagems.add(newStratagem);
-            } while (cursor.moveToNext());
-        }
-
-        // Close cursor
-        cursor.close();
     }
 
     private void readUserPreferencesTable() {
@@ -172,7 +132,6 @@ public class Database extends SQLiteOpenHelper {
                 continue;
             }
         }
-        Log.d("BATCH", Integer.toString(batch.size()));
         return batch;
     }
 

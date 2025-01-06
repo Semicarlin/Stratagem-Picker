@@ -12,5 +12,7 @@ public enum StratagemType {
     // Mines, turrets, and other stationary assets
     EMPLACEMENT,
     // Exosuits
-    MECH
+    MECH,
+    // FRV (and future apcs??)
+    VEHICLE
 }

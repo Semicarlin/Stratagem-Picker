@@ -8,26 +8,33 @@ public class Stratagem {
     private int id;
     private String name;
     private String input;
-    private int callInTime;
     private double uses;
-    private int cooldown;
     private StratagemType type;
     private boolean hasBackpack;
-    private boolean owned;
+    private boolean isOwned;
 
     // Constructors
     public Stratagem() {}
 
-    public Stratagem(int id, String name, String input, int callInTime, double uses, int cooldown, StratagemType type, boolean hasBackpack, boolean owned) {
+    public Stratagem(int id, String name, String input, int uses, StratagemType type, int hasBackpack, int isOwned)
+    {
         this.id = id;
         this.name = name;
         this.input = input;
-        this.callInTime = callInTime;
         this.uses = uses;
-        this.cooldown = cooldown;
+        this.type = type;
+        this.hasBackpack = (hasBackpack == 1);
+        this.isOwned = (isOwned == 1);
+    }
+
+    public Stratagem(int id, String name, String input, double uses, StratagemType type, boolean hasBackpack, boolean isOwned) {
+        this.id = id;
+        this.name = name;
+        this.input = input;
+        this.uses = uses;
         this.type = type;
         this.hasBackpack = hasBackpack;
-        this.owned = owned;
+        this.isOwned = isOwned;
     }
 
     // Getters
@@ -43,16 +50,8 @@ public class Stratagem {
         return input;
     }
 
-    public int getCallInTime() {
-        return callInTime;
-    }
-
     public double getUses() {
         return uses;
-    }
-
-    public int getCooldown() {
-        return cooldown;
     }
 
     public StratagemType getType() {
@@ -64,7 +63,7 @@ public class Stratagem {
     }
 
     public boolean isOwned() {
-        return owned;
+        return isOwned;
     }
 
     // Functions
@@ -74,12 +73,9 @@ public class Stratagem {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", input='" + input + '\'' +
-                ", callInTime=" + callInTime +
                 ", uses=" + uses +
-                ", cooldown=" + cooldown +
                 ", type=" + type +
                 ", hasBackpack=" + hasBackpack +
-                ", owned=" + owned +
                 '}';
     }
 
