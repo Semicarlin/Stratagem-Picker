@@ -1,55 +1,61 @@
-name,input,callInTime,uses,cooldown,type,hasBackpack,isOwned
-Machine Gun,dldur,3,1e999,480,weapon,0,1
-Anti-Material Rifle,dlrud,3,1e999,480,weapon,0,1
-Stalwart,dlduul,3,1e999,480,weapon,0,1
-Expendable Anti-Tank,ddlur,2,1e999,70,weapon,0,1
-Recoilless Rifle,dlrrl,3,1e999,480,weapon,1,1
-Flamethrower,dludu,3,1e999,480,weapon,0,1
-Autocannon,dlduur,3,1e999,480,weapon,1,1
-Railgun,drdulr,3,1e999,480,weapon,0,1
-Spear,ddudd,3,1e999,480,weapon,1,1
-Orbital Gatling Barrage,rdluu,2,1e999,80,orbital,0,1
-Orbital Airburst Strike,rrr,2,1e999,120,orbital,0,1
-Orbital 120mm HE Barrage,rrdlrd,5,1e999,240,orbital,0,1
-Orbital 380mm HE Barrage,rduuldd,6,1e999,240,orbital,0,1
-Orbital Walking Barrage,rdrdrd,3,1e999,240,orbital,0,1
-Orbital Laser Strike,rdurd,2,3,300,orbital,0,1
-Orbital Railcannon Strike,ruddr,1,1e999,210,orbital,0,1
-Eagle Strafing Run,urr,0,4,8,eagle,0,1
-Eagle Airstrike,urdr,0,2,8,eagle,0,1
-Eagle Cluster Bomb,urddr,0,4,8,eagle,0,1
-Eagle Napalm Airstrike,urdu,0,2,8,eagle,0,1
-Jump Pack,duudu,5,1e999,480,backpack,1,1
-Eagle Smoke Strike,urud,0,2,8,eagle,0,1
-Eagle 110mm Rocket Pods,urul,0,2,8,eagle,0,1
-Eagle 500kg Bomb,urddd,0,1,8,eagle,0,1
-Orbital Precision Strike,rru,4,1e999,100,orbital,0,1
-Orbital Gas Strike,rrdr,2,1e999,75,orbital,0,1
-Orbital EMS Strike,rrld,2,1e999,75,orbital,0,1
-Orbital Smoke Strike,rrdu,2,1e999,100,orbital,0,1
-HMG Emplacement,dulrrl,3,1e999,180,emplacement,0,1
-Shield Generator Relay,ddlrlr,0,1e999,90,emplacement,0,1
-Tesla Tower,durulr,3,1e999,150,emplacement,0,1
-Anti-Personnel Minefield,dldur,3,1e999,180,emplacement,0,1
-Supply Pack,dlduud,5,1e999,480,backpack,1,1
-Grenade Launcher,dluld,3,1e999,480,weapon,0,1
-Laser Cannon,dldul,3,1e999,480,weapon,0,1
-Incendiary Mines,dlld,3,1e999,180,emplacement,0,1
-Guard Dog Rover,dulurr,5,1e999,480,backpack,1,1
-Ballistic Shield Backpack,dlddul,5,1e999,300,backpack,1,1
-Arc Thrower,drdull,3,1e999,480,weapon,0,1
-Shield Generator Pack,dulrlr,5,1e999,480,backpack,1,1
-Machine Gun Sentry,durru,3,1e999,180,emplacement,0,1
-Gatling Sentry,durl,3,1e999,180,emplacement,0,1
-Mortar Sentry,durrd,3,1e999,180,emplacement,0,1
-Guard Dog,dulurd,5,1e999,480,backpack,1,1
-Autocannon Sentry,durulu,3,1e999,180,emplacement,0,1
-Rocket Sentry,durrl,3,1e999,180,emplacement,0,1
-EMS Mortar Sentry,durdr,3,1e999,180,emplacement,0,1
-Patriot Exosuit,ldruldd,0,2,600,mech,0,1
-Airburst Rocket Launcher,duulr,3,1e999,480,weapon,1,1
-Emancipator Exosuit,ldruldu,0,2,600,mech,0,1
-Anti-Tank Mines,dluu,7,1e999,180,emplacement,0,1
-Orbital Napalm Barrage,rrdlru,10,1e999,240,orbital,0,1
-Sterilizer,dludl,8,1e999,480,weapon,0,1
-Guard Dog Dog Breath,duluru,10,1e999,480,backpack,1,1
+name,input,uses,type,hasBackpack,isOwned
+Machine Gun,dldur,1e999,weapon,0,1
+Anti-Material Rifle,dlrud,1e999,weapon,0,1
+Stalwart,dlduul,1e999,weapon,0,1
+Expendable Anti-Tank,ddlur,1e999,weapon,0,1
+Recoilless Rifle,dlrrl,1e999,weapon,1,1
+Flamethrower,dludu,1e999,weapon,0,1
+Autocannon,dlduur,1e999,weapon,1,1
+Railgun,drdulr,1e999,weapon,0,1
+Spear,ddudd,1e999,weapon,1,1
+Orbital Gatling Barrage,rdluu,1e999,orbital,0,1
+Orbital Airburst Strike,rrr,1e999,orbital,0,1
+Orbital 120mm HE Barrage,rrdlrd,1e999,orbital,0,1
+Orbital 380mm HE Barrage,rduuldd,1e999,orbital,0,1
+Orbital Walking Barrage,rdrdrd,1e999,orbital,0,1
+Orbital Laser Strike,rdurd,3,orbital,0,1
+Orbital Railcannon Strike,ruddr,1e999,orbital,0,1
+Eagle Strafing Run,urr,4,eagle,0,1
+Eagle Airstrike,urdr,2,eagle,0,1
+Eagle Cluster Bomb,urddr,4,eagle,0,1
+Eagle Napalm Airstrike,urdu,2,eagle,0,1
+Jump Pack,duudu,1e999,backpack,1,1
+Eagle Smoke Strike,urud,2,eagle,0,1
+Eagle 110mm Rocket Pods,urul,2,eagle,0,1
+Eagle 500kg Bomb,urddd,1,eagle,0,1
+Orbital Precision Strike,rru,1e999,orbital,0,1
+Orbital Gas Strike,rrdr,1e999,orbital,0,1
+Orbital EMS Strike,rrld,1e999,orbital,0,1
+Orbital Smoke Strike,rrdu,1e999,orbital,0,1
+HMG Emplacement,dulrrl,1e999,emplacement,0,1
+Shield Generator Relay,ddlrlr,1e999,emplacement,0,1
+Tesla Tower,durulr,1e999,emplacement,0,1
+Anti-Personnel Minefield,dldur,1e999,emplacement,0,1
+Supply Pack,dlduud,1e999,backpack,1,1
+Grenade Launcher,dluld,1e999,weapon,0,1
+Laser Cannon,dldul,1e999,weapon,0,1
+Incendiary Mines,dlld,1e999,emplacement,0,1
+Guard Dog Rover,dulurr,1e999,backpack,1,1
+Ballistic Shield Backpack,dlddul,1e999,backpack,1,1
+Arc Thrower,drdull,1e999,weapon,0,1
+Shield Generator Pack,dulrlr,1e999,backpack,1,1
+Machine Gun Sentry,durru,1e999,emplacement,0,1
+Gatling Sentry,durl,1e999,emplacement,0,1
+Mortar Sentry,durrd,1e999,emplacement,0,1
+Guard Dog,dulurd,1e999,backpack,1,1
+Autocannon Sentry,durulu,1e999,emplacement,0,1
+Rocket Sentry,durrl,1e999,emplacement,0,1
+EMS Mortar Sentry,durdr,1e999,emplacement,0,1
+Patriot Exosuit,ldruldd,2,mech,0,1
+Airburst Rocket Launcher,duulr,1e999,weapon,1,1
+Emancipator Exosuit,ldruldu,2,mech,0,1
+Anti-Tank Mines,dluu,1e999,emplacement,0,1
+Orbital Napalm Barrage,rrdlru,1e999,orbital,0,1
+Sterilizer,dludl,1e999,weapon,0,1
+Guard Dog Dog Breath,duluru,1e999,backpack,1,1
+Directional Shield,dulruu,1e999,backpack,1,1
+Flame Sentry,durduu,1e999,emplacement,0,1
+Anti-Tank Emplacement,dulrrr,1e999,emplacement,0,1
+Fast Recon Vehicle,ldrdrdu,1e999,vehicle,0,1
+W.A.S.P Launcher,ddudr,1e999,weapon,1,1
+Gas Mines,dllr,1e999,emplacement,0,0
