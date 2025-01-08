@@ -7,13 +7,18 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.stratagempicker.Activities.MainActivity;
 import com.example.stratagempicker.R;
 
 public class UserPreferencesFragment extends Fragment {
 
     // Attributes
+    private SwitchCompat allowMultipleWeaponsSwitch;
+    private SwitchCompat allowMultipleBackpacksSwitch;
+    private SwitchCompat allowMultipleEaglesSwitch;
 
     // Constructor
     public UserPreferencesFragment() {}
@@ -27,5 +32,15 @@ public class UserPreferencesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        // Find switches
+        allowMultipleWeaponsSwitch = view.findViewById(R.id.multiple_weapons_switch);
+        allowMultipleBackpacksSwitch = view.findViewById(R.id.multiple_backpacks_switch);
+        allowMultipleEaglesSwitch = view.findViewById(R.id.multiple_eagles_switch);
+
+        // Set switches to match user object
+        allowMultipleWeaponsSwitch.setChecked(MainActivity.user.isAllowMultipleWeapons());
+        allowMultipleBackpacksSwitch.setChecked(MainActivity.user.isAllowMultipleBackpacks());
+        allowMultipleEaglesSwitch.setChecked(MainActivity.user.isAllowMultipleEagles());
     }
 }

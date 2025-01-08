@@ -1,29 +1,21 @@
 package com.example.stratagempicker.Activities;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentContainerView;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.stratagempicker.Fragments.CategoryListFragment;
 import com.example.stratagempicker.Fragments.GenerateLoadoutFragment;
 import com.example.stratagempicker.Fragments.UserPreferencesFragment;
-import com.example.stratagempicker.Model.Batch;
 import com.example.stratagempicker.Model.Database;
 import com.example.stratagempicker.Model.User;
 import com.example.stratagempicker.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-
-import java.util.List;
 
 /**
  * Main activity of application
@@ -31,10 +23,12 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Attributes
+    // Database attributes
     String dbName = "database.db";
     public static User user;
     public static Database database;
+
+    // Navbar attributes
     private BottomNavigationView navBar;
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private CategoryListFragment categoryListFragment = new CategoryListFragment();

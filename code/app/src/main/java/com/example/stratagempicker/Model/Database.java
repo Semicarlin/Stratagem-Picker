@@ -39,7 +39,16 @@ public class Database extends SQLiteOpenHelper {
         this.dbName = dbName;
         this.appDataPath = context.getApplicationInfo().dataDir;
 
+        // Ensure database folder exists
+        File dbPath = new File(appDataPath + "/databases/");
+        if (!dbPath.exists()) {
+            if (!dbPath.mkdirs()) {
+                throw new RuntimeException("Failed to make database directories");
+            }
+        }
+
         // Create or open database from device files
+        Log.d("DBConstructor", appDataPath + "/databases/" + dbName);
         sqLiteDatabase = SQLiteDatabase.openOrCreateDatabase(appDataPath + "/databases/" + dbName, null);
 
         // Get contents of database
@@ -57,7 +66,9 @@ public class Database extends SQLiteOpenHelper {
         if (!tableExists(userPreferencesTableName)) {
             createUserPreferencesTable();
         }
-        readUserPreferencesTable();
+        else {
+            readUserPreferencesTable();
+        }
 
         // Read categories table
         // TODO
@@ -85,6 +96,8 @@ public class Database extends SQLiteOpenHelper {
         // Get user preferences from database "user_preferences(id INTEGER PRIMARY KEY, allowMutlipleWeapons INTEGER, allowMultipleBackpacks INTEGER, allowMultipleEagles INTEGER);
         String userQuery = "SELECT * FROM " + userPreferencesTableName + ";";
         Cursor cursor = sqLiteDatabase.rawQuery(userQuery, null);
+
+        // Read found row
         if (cursor.moveToFirst()) {
 
             // Get attributes of user
@@ -95,7 +108,11 @@ public class Database extends SQLiteOpenHelper {
 
             // Update user object
             MainActivity.user.updateUser(allowMultipleWeapons, allowMultipleBackpacks, allowMultipleEagles);
+        }
 
+        // Otherwise, throw error because table was not created correctly
+        else {
+            throw new RuntimeException("User table read query failed");
         }
 
         // Close cursor
@@ -107,17 +124,19 @@ public class Database extends SQLiteOpenHelper {
 
         // Write table into db
         String createIfNotExistQuery = "CREATE TABLE IF NOT EXISTS " + userPreferencesTableName +
-                "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "("+
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "allowMutlipleWeapons INTEGER, " +
                 "allowMultipleBackpacks INTEGER, " +
-                "allowMultipleEagles INTEGER);";
+                "allowMultipleEagles INTEGER" +
+                ");";
         sqLiteDatabase.execSQL(createIfNotExistQuery);
 
         // Write user table to default construction
         String writeUserRow = "INSERT INTO " + userPreferencesTableName + " VALUES (0, "
-                + (MainActivity.user.isAllowMultipleWeapons() ? 1 : 0) +", "
-                + (MainActivity.user.isAllowMultipleBackpacks() ? 1 : 0) + ", "
-                + (MainActivity.user.isAllowMultipleEagles() ? 1 : 0) + ");";
+                + (MainActivity.user.isAllowMultipleWeaponsInt()) +", "
+                + (MainActivity.user.isAllowMultipleBackpacksInt()) + ", "
+                + (MainActivity.user.isAllowMultipleEaglesInt()) + ");";
         sqLiteDatabase.execSQL(writeUserRow);
     }
 
@@ -138,13 +157,13 @@ public class Database extends SQLiteOpenHelper {
     // Called the first time the database is accessed
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Do nothing as db already exists and is static
+        // Do nothing as db already exists
     }
 
     // Called if the database version number changes
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Do nothing as db already exists and is static
+        // Do nothing as db already exists
     }
 
     private void writeDatabaseFromAssets(Context context, File dbFile) {

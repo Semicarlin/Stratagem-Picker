@@ -24,6 +24,8 @@ public class User {
         this.allowMultipleBackpacks = allowMultipleBackpacks;
         this.allowMultipleEagles = allowMultipleEagles;
     }
+
+    // Bool getters
     public boolean isAllowMultipleWeapons() {
         return allowMultipleWeapons;
     }
@@ -32,6 +34,17 @@ public class User {
     }
     public boolean isAllowMultipleEagles() {
         return allowMultipleEagles;
+    }
+
+    // int getters
+    public int isAllowMultipleWeaponsInt() {
+        return allowMultipleWeapons ? 1 : 0;
+    }
+    public int isAllowMultipleBackpacksInt() {
+        return allowMultipleBackpacks ? 1 : 0;
+    }
+    public int isAllowMultipleEaglesInt() {
+        return allowMultipleEagles ? 1 : 0;
     }
 
     @Override
