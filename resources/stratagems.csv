@@ -46,9 +46,11 @@ Guard Dog,dulurd,1e999,backpack,1,1
 Autocannon Sentry,durulu,1e999,emplacement,0,1
 Rocket Sentry,durrl,1e999,emplacement,0,1
 EMS Mortar Sentry,durdr,1e999,emplacement,0,1
-Patriot Exosuit,ldruldd,2,mech,0,1
+Patriot Exosuit,ldruldd,3,mech,0,1
+Heavy Machine Gun,dludd,1e999,weapon,0,1
+Quasar Cannon,ddulr,1e999,weapon,0,1
 Airburst Rocket Launcher,duulr,1e999,weapon,1,1
-Emancipator Exosuit,ldruldu,2,mech,0,1
+Emancipator Exosuit,ldruldu,3,mech,0,1
 Anti-Tank Mines,dluu,1e999,emplacement,0,1
 Orbital Napalm Barrage,rrdlru,1e999,orbital,0,1
 Sterilizer,dludl,1e999,weapon,0,1
@@ -58,4 +60,16 @@ Flame Sentry,durduu,1e999,emplacement,0,1
 Anti-Tank Emplacement,dulrrr,1e999,emplacement,0,1
 Fast Recon Vehicle,ldrdrdu,1e999,vehicle,0,1
 W.A.S.P Launcher,ddudr,1e999,weapon,1,1
-Gas Mines,dllr,1e999,emplacement,0,0
+Portable Hellbomb,druuu,1e999,backpack,1,1
+Gas Mines,dllr,1e999,emplacement,0,1
+Hover Pack,duudlr,1e999,backpack,1,1
+Grenadier Battlement,drdlr,1e999,emplacement,0,1
+One True Flag,dlrru,1e999,weapon,0,1
+De-Escalator,drulr,1e999,weapon,0,1
+Guard Dog K-9,dulurl,1e999,backpack,1,1
+Epoch,dlulr,1e999,weapon,0,1
+Laser Sentry,durdur,1e999,emplacement,0,1
+Warp Pack,dlrdlr,1e999,backpack,1,1
+Speargun,drdlur,1e999,weapon,0,1
+Expendable Napalm,ddlul,1e999,weapon,0,1
+Solo Silo,durdd,1e999,weapon,0,1
