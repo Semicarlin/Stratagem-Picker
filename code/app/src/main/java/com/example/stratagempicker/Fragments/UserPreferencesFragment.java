@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +20,8 @@ public class UserPreferencesFragment extends Fragment {
     private SwitchCompat allowMultipleWeaponsSwitch;
     private SwitchCompat allowMultipleBackpacksSwitch;
     private SwitchCompat allowMultipleEaglesSwitch;
+    private Button cancelButton;
+    private Button saveButton;
 
     // Constructor
     public UserPreferencesFragment() {}
@@ -39,8 +42,31 @@ public class UserPreferencesFragment extends Fragment {
         allowMultipleEaglesSwitch = view.findViewById(R.id.multiple_eagles_switch);
 
         // Set switches to match user object
-        allowMultipleWeaponsSwitch.setChecked(MainActivity.user.isAllowMultipleWeapons());
-        allowMultipleBackpacksSwitch.setChecked(MainActivity.user.isAllowMultipleBackpacks());
-        allowMultipleEaglesSwitch.setChecked(MainActivity.user.isAllowMultipleEagles());
+        setSwitches();
+
+        // Find buttons
+        cancelButton = view.findViewById(R.id.cancel_button);
+        saveButton = view.findViewById(R.id.save_button);
+
+        // Set behaviour of buttons
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setSwitches();
+            }
+        });
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+    }
+
+    private void setSwitches() {
+        allowMultipleWeaponsSwitch.setChecked(MainActivity.database.user.isAllowMultipleWeapons());
+        allowMultipleBackpacksSwitch.setChecked(MainActivity.database.user.isAllowMultipleBackpacks());
+        allowMultipleEaglesSwitch.setChecked(MainActivity.database.user.isAllowMultipleEagles());
     }
 }

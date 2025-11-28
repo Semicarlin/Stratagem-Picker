@@ -19,7 +19,7 @@ public class User {
     }
 
     // Functions
-    public void updateUser(boolean allowMultipleWeapons, boolean allowMultipleBackpacks, boolean allowMultipleEagles) {
+    public void updateAttributes(boolean allowMultipleWeapons, boolean allowMultipleBackpacks, boolean allowMultipleEagles) {
         this.allowMultipleWeapons = allowMultipleWeapons;
         this.allowMultipleBackpacks = allowMultipleBackpacks;
         this.allowMultipleEagles = allowMultipleEagles;

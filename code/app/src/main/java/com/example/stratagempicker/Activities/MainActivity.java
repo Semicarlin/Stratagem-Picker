@@ -12,7 +12,6 @@ import com.example.stratagempicker.Fragments.CategoryListFragment;
 import com.example.stratagempicker.Fragments.GenerateLoadoutFragment;
 import com.example.stratagempicker.Fragments.UserPreferencesFragment;
 import com.example.stratagempicker.Model.Database;
-import com.example.stratagempicker.Model.User;
 import com.example.stratagempicker.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -25,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
     // Database attributes
     String dbName = "database.db";
-    public static User user;
     public static Database database;
 
     // Navbar attributes
@@ -44,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Create user object
-        user = new User();
 
         // Create database instance
         database = new Database(getBaseContext(), dbName);

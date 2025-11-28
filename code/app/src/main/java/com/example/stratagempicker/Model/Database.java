@@ -8,8 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.stratagempicker.Activities.MainActivity;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -32,12 +30,16 @@ public class Database extends SQLiteOpenHelper {
     private List<Stratagem> allStratagems = new ArrayList<>();
     private final Random randomGenerator = new Random();
     private SQLiteDatabase sqLiteDatabase;
+    public User user;
 
     // Constructor
     public Database(Context context, String dbName) {
         super(context, dbName, null, 1);
         this.dbName = dbName;
         this.appDataPath = context.getApplicationInfo().dataDir;
+
+        // Create new user object
+        user = new User();
 
         // Ensure database folder exists
         File dbPath = new File(appDataPath + "/databases/");
@@ -55,7 +57,12 @@ public class Database extends SQLiteOpenHelper {
         getDatabaseContents();
     }
 
-    // Functions
+    // Public functions
+    public void updateUser() {
+
+    }
+
+    // Private functions
     private void getDatabaseContents() {
 
         // Get stratagems
@@ -107,7 +114,7 @@ public class Database extends SQLiteOpenHelper {
             boolean allowMultipleEagles = cursor.getInt(3) == 1;
 
             // Update user object
-            MainActivity.user.updateUser(allowMultipleWeapons, allowMultipleBackpacks, allowMultipleEagles);
+            user.updateAttributes(allowMultipleWeapons, allowMultipleBackpacks, allowMultipleEagles);
         }
 
         // Otherwise, throw error because table was not created correctly
@@ -134,9 +141,9 @@ public class Database extends SQLiteOpenHelper {
 
         // Write user table to default construction
         String writeUserRow = "INSERT INTO " + userPreferencesTableName + " VALUES (0, "
-                + (MainActivity.user.isAllowMultipleWeaponsInt()) +", "
-                + (MainActivity.user.isAllowMultipleBackpacksInt()) + ", "
-                + (MainActivity.user.isAllowMultipleEaglesInt()) + ");";
+                + (user.isAllowMultipleWeaponsInt()) +", "
+                + (user.isAllowMultipleBackpacksInt()) + ", "
+                + (user.isAllowMultipleEaglesInt()) + ");";
         sqLiteDatabase.execSQL(writeUserRow);
     }
 
